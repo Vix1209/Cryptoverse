@@ -1,6 +1,8 @@
 import React from 'react';
+// eslint-disable-next-line
 import { Button, Menu, Typography, Avatar} from 'antd'
 import { Link} from 'react-router-dom'
+// eslint-disable-next-line
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
 import icon from '../images/cryptocurrency.png'
 
@@ -19,7 +21,7 @@ const Navbar = () => {
             </div>
             <Menu theme='dark'>
                 <Menu.Item icon={<HomeOutlined />}>
-                    <Link to='/'></Link>
+                    <Link to='/'>Home</Link>
                 </Menu.Item>
 
                 <Menu.Item icon={<FundOutlined />}>
