@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 //eslint-disable-next-line
 import store from './app/store';
 // store is the variable we are to provide to our provider 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
