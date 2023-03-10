@@ -22,7 +22,6 @@ const News = ({simplified}) => {
     if (isFetching){
         return 'Loading...'
     }
-    // const {data : cryptoNews } = useGetCryptoNewsQuery()
     console.log(cryptoNews);
 
     return (
@@ -35,15 +34,21 @@ const News = ({simplified}) => {
                     <Col xs={24} sm={12} lg={8} key={i}>
                         <Card className='news-card'>
                             <a href={news.url} target='_blank' rel='noreferrer'>
-                                <div className='news'>
+                                <div className='news-image-container'>
                                     <Title className='news-title' level={5}>
                                         {news.title}
                                     </Title>
-                                    <img  src={demoImage} />
+                                    <img style={{maxWidth : '200px', maxHeight : '100px'}} src={demoImage}  alt= ''/>
                                 </div>
                                 <p>
                                     {news.description > 100 ? `${news.description.substring(0, 100)}...` : news.description}
                                 </p>
+                                <div className='provider-container'>
+                                    
+                                    <Avatar src = {demoImage} alt='' />
+                                    
+                                    <Text>{moment(news.date).startOf('ss').fromNow()}</Text>
+                                </div>
                             </a>
                         </Card>
                     </Col>
