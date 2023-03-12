@@ -41,7 +41,7 @@ const App = () => {
 
                             </Route>
 
-                            <Route exact path='/crypto/:coinid'>
+                            <Route exact path='/crypto/:coinId'>
                             {/* this allows us to route to an exact location */}
 
                                 <CryptoDetails />
