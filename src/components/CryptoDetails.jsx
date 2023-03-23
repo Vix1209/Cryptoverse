@@ -15,6 +15,8 @@ import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/
 
 import Linechart from './Linechart';
 
+import Loader from './Loader';
+
 const {Title, Text} = Typography;
 
 // const { Option } = Select;
@@ -28,7 +30,7 @@ const CryptoDetails = () => {
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)    
     const { data: coinHistory } = useGetCryptoHistoryQuery({coinId, timePeriod})    
    
-    if (isFetching) return 'Loading...'
+    if (isFetching) return <Loader />
 
     const cryptoDetails =  data?.data?.coin;
 
@@ -37,7 +39,7 @@ const CryptoDetails = () => {
     const stats = [
       { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
       { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },
-      { title: '24h Volume', value: `$ ${cryptoDetails?.volume && millify(cryptoDetails?.volume)}`, icon: <ThunderboltOutlined /> },
+      { title: '24h Volume', value: `$ ${cryptoDetails?.volume && cryptoDetails?.volume}`, icon: <ThunderboltOutlined /> },
       { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleOutlined /> },
       { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
     ];

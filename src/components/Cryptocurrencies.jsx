@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 // eslint-disable-next-line 
 import { Card, Row, Col, Input } from 'antd';
 
+import Loader from './Loader'
+
 import { useGetCryptosQuery } from '../services/cryptoApi';
 
 // simplified is passed down in the argument using Prop
@@ -35,7 +37,7 @@ const Cryptocurrencies = ({simplified}) => {
     }, [cryptoList, searchTerm])
 
     if (isFetching){
-        return 'Loading...'
+        return <Loader />
     }
 
     return (

@@ -7,6 +7,7 @@ import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
 import moment from 'moment/moment';
 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
+import Loader from './Loader';
 
 // eslint-disable-next-line
 const { Text, Title } = Typography
@@ -20,7 +21,7 @@ const News = ({simplified}) => {
     const count = simplified ? 6 : 12;
     const {data : cryptoNews, isFetching } = useGetCryptoNewsQuery(count)
     if (isFetching){
-        return 'Loading...'
+        return <Loader />
     }
     console.log(cryptoNews);
 
@@ -33,12 +34,12 @@ const News = ({simplified}) => {
 
                     <Col xs={24} sm={12} lg={8} key={i}>
                         <Card className='news-card'>
-                            <a href={news.url} target='_blank' rel='noreferrer'>
+                            <a href={news.url} rel='noreferrer'>
                                 <div className='news-image-container'>
-                                    <Title className='news-title' level={5}>
+                                    <Title className='news-title' level={4}>
                                         {news.title}
                                     </Title>
-                                    <img style={{maxWidth : '200px', maxHeight : '100px'}} src={demoImage}  alt= ''/>
+                                    {/* <img style={{maxWidth : '200px', maxHeight : '100px'}} src={demoImage}  alt= ''/> */}
                                 </div>
                                 <p>
                                     {news.description > 100 ? `${news.description.substring(0, 100)}...` : news.description}

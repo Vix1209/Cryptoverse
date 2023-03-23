@@ -14,6 +14,8 @@ import { Link } from 'react-router-dom';
 // redux toolkit for fetching real life data from www.rapidapi.com
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
+
+import Loader from './Loader';
 import Cryptocurrencies from './Cryptocurrencies';
 import News from './News';
 
@@ -26,7 +28,7 @@ const Homepage = () => {
 
     console.log(data);
     if (isFetching){
-        return 'Loading...'
+        return <Loader />
     }
 
     return (
@@ -36,16 +38,16 @@ const Homepage = () => {
             </Typography.Title>
             <Row gutter={[32, 32]}>
                 <Col span={12}>
-                    <Statistic title='Total Cryptocurrencies' value={globalStats.total}/>
+                    <Statistic title='Total Cryptocurrencies' value={millify(globalStats.total)}/>
                 </Col>
                 <Col span={12}>
-                    <Statistic title='Total Exchanges' value={globalStats.totalExchanges}/>
+                    <Statistic title='Total Exchanges' value={millify(globalStats.totalExchanges)}/>
                 </Col>
                 <Col span={12}>
-                    <Statistic title='Total Market Cap' value={globalStats.totalMarketCap}/>
+                    <Statistic title='Total Market Cap' value={millify(globalStats.totalMarketCap)}/>
                 </Col>
                 <Col span={12}>
-                    <Statistic title='Total 24h Volume' value={globalStats.total24hVolume}/>
+                    <Statistic title='Total 24h Volume' value={millify(globalStats.total24hVolume)}/>
                 </Col>
                 <Col span={12}>
                     <Statistic title='Total Markets' value={globalStats.Markets}/>
@@ -54,7 +56,7 @@ const Homepage = () => {
             </Row>
             <div className='home-heading-container'>
                 <Typography.Title level={3} className='home-title'>
-                    Top 10 Cryptocurrencies in the World
+                    Top Cryptocurrencies in the World
                 </Typography.Title>
                 <Typography.Title level={5} className='Show more'>
                     <Link to='./cryptocurrencies'>Show more</Link>
