@@ -19,10 +19,6 @@ export const cryptoApi = createApi({
       // this endpoint 'coins' will give us more information about all cryptocurrencies 
     }),
 
-    getExchanges: builder.query({
-      query : ()=> createRequest(`/exchanges  `)
-
-    }),
 
     getCryptoDetails: builder.query({
       query : (coinId)=> createRequest(`/coin/${coinId}`),
@@ -38,7 +34,7 @@ export const cryptoApi = createApi({
 
 
 export const {
-  useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery, useGetExchangesQuery //when naming, make sure to have the 'use' and 'query' at the beginning an end of the name of the endpoint
+  useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery, //when naming, make sure to have the 'use' and 'query' at the beginning an end of the name of the endpoint
 } = cryptoApi;
 // above  is a hook created by redux toolkit that can be called instantly to get all the data for a query
 

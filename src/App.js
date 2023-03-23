@@ -3,7 +3,7 @@ import React from 'react';
 import { Switch, Route, Link} from 'react-router-dom'
 // eslint-disable-next-line
 import { Layout, Typography, Space } from 'antd'
-import {Navbar, Homepage, Exchanges, Cryptocurrencies, News, CryptoDetails} from './components'
+import {Navbar, Homepage, Cryptocurrencies, News, CryptoDetails} from './components'
 import './App.css'
 
 const App = () => {
@@ -21,15 +21,7 @@ const App = () => {
                             {/* this allows us to route to an exact location */}
 
                                 <Homepage />
-                                {/* this is the component you wish to rout   */}
-
-                            </Route>
-
-                            <Route exact path='/exchanges'>
-                            {/* this allows us to route to an exact location */}
-
-                                <Exchanges />
-                                {/* this is the component you wish to rout   */}
+                                {/* this is the component you wish to route   */}
 
                             </Route>
 
@@ -37,7 +29,7 @@ const App = () => {
                             {/* this allows us to route to an exact location */}
 
                                 <Cryptocurrencies />
-                                {/* this is the component you wish to rout   */}
+                                {/* this is the component you wish to route   */}
 
                             </Route>
 
@@ -45,7 +37,7 @@ const App = () => {
                             {/* this allows us to route to an exact location */}
 
                                 <CryptoDetails />
-                                {/* this is the component you wish to rout   */}
+                                {/* this is the component you wish to route   */}
 
                             </Route>
 
@@ -53,7 +45,7 @@ const App = () => {
                             {/* this allows us to route to an exact location */}
 
                                 <News />
-                                {/* this is the component you wish to rout   */}
+                                {/* this is the component you wish to route   */}
 
                             </Route>
                         </Switch>
@@ -67,7 +59,6 @@ const App = () => {
                     </Typography.Title>
                     <Space>
                         <Link to='/'>Home</Link>
-                        <Link to='/exchanges'>Exchanges</Link>
                         <Link to='/news'>News</Link>
                     </Space>
                 </div>
