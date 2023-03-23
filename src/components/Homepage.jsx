@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 //eslint-disable-next-line
@@ -52,10 +53,10 @@ const Homepage = () => {
               
             </Row>
             <div className='home-heading-container'>
-                <Typography.Title level={2} className='home-title'>
+                <Typography.Title level={3} className='home-title'>
                     Top 10 Cryptocurrencies in the World
                 </Typography.Title>
-                <Typography.Title level={3} className='Show more'>
+                <Typography.Title level={5} className='Show more'>
                     <Link to='./cryptocurrencies'>Show more</Link>
                 </Typography.Title>
                 
@@ -64,10 +65,10 @@ const Homepage = () => {
 
 
             <div className='home-heading-container'>   
-                <Typography.Title level={2} className='home-title'>
+                <Typography.Title level={3} className='home-title'>
                     Latest Cryptocurrencies News
                 </Typography.Title>
-                <Typography.Title level={3} className='Show more'>
+                <Typography.Title level={5} className='Show more'>
                     <Link to='./news'>Show more</Link>
                 </Typography.Title>
 

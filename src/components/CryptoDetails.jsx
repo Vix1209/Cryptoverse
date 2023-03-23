@@ -6,21 +6,23 @@ import { useParams } from 'react-router-dom'
 
 import millify from 'millify';
 
+//eslint-disable-next-line
 import { Col, Row, Typography, Select } from 'antd';
 
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined  } from '@ant-design/icons';
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 
-import Linechart from './linechart';
+import Linechart from './Linechart';
 
 const {Title, Text} = Typography;
 
-const { Option } = Select;
+// const { Option } = Select;
 
 const CryptoDetails = () => {
     const {coinId}=useParams();
 
+    //eslint-disable-next-line
     const [timePeriod, setTimeperiod] = useState('7d')
     
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)    
@@ -30,7 +32,7 @@ const CryptoDetails = () => {
 
     const cryptoDetails =  data?.data?.coin;
 
-    const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
+    // const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
     const stats = [
       { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
@@ -49,7 +51,7 @@ const CryptoDetails = () => {
     ];
 
     return (
-      <div>
+      
         <Col className='coin-detail-container'>
             <Col className='coin-heading-container'>
                 <Title level={2} className='coin-name'>
@@ -60,7 +62,11 @@ const CryptoDetails = () => {
                   View value statistics, market cap and supply
                 </p>
             </Col>
-            <Select 
+
+
+            {/* 👇🏾Time frame for the linechart */}
+
+            {/* <Select 
               defaultValue='7d'
               className = 'select-timeperiod' 
               placeholder='Select Time Period' 
@@ -71,11 +77,11 @@ const CryptoDetails = () => {
                   {date} 
                 </Option>
               )}
-            </Select>
+            </Select> */}
 
 
             <Linechart 
-              coinHistory={coinHistory} 
+              coinHistory= {coinHistory}
               currentPrice = {millify(cryptoDetails.price)} 
               coinName = {cryptoDetails.name}
             />
@@ -158,7 +164,7 @@ const CryptoDetails = () => {
               </Col>
             </Col>
         </Col>     
-      </div>
+      
       
     );
 }
