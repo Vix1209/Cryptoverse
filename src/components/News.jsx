@@ -33,8 +33,8 @@ const News = ({simplified}) => {
                 {cryptoNews?.map((news, i)=>(
 
                     <Col xs={24} sm={12} lg={8} key={i}>
-                        <Card className='news-card'>
-                            <a href={news.url} rel='noreferrer'>
+                        <Card className='news-card' hoverable>
+                            <a href={news.url} target='-blank' rel='noreferrer'>
                                 <div className='news-image-container'>
                                     <Title className='news-title' level={4}>
                                         {news.title}

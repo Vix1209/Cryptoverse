@@ -1,12 +1,21 @@
 import React from 'react';
+
 // eslint-disable-next-line
 import { Switch, Route, Link} from 'react-router-dom'
+
 // eslint-disable-next-line
 import { Layout, Typography, Space } from 'antd'
-import {Navbar, Homepage, Cryptocurrencies, News, CryptoDetails} from './components'
+
+// eslint-disable-next-line
+import {Navbar, Homepage, Exchanges, Cryptocurrencies, News, CryptoDetails} from './components'
+
 import './App.css'
 
 const App = () => {
+
+    const current = new Date();
+    const date = current.getFullYear()
+
     return (
         <div className='app'>
             <div className='navbar'>
@@ -24,6 +33,12 @@ const App = () => {
                                 {/* this is the component you wish to route   */}
 
                             </Route>
+
+                            {/* <Route exact path='/exchanges'>
+
+                                <Exchanges />
+
+                            </Route> */}
 
                             <Route exact path='/cryptocurrencies'>
                             {/* this allows us to route to an exact location */}
@@ -55,12 +70,14 @@ const App = () => {
                 <div className='footer'>
                     <Typography.Title level={5} style={{color: 'white', textAlign: 'center'}}>
                         Cryptoverse <br/>
-                        All rights reserved
+
+                        <p>Copyright &copy; {date} All rights reserved</p>
                     </Typography.Title>
-                    <Space>
+                    {/* <Space>
                         <Link to='/'>Home</Link>
+                        <Link to='/exchanges'>Exchanges</Link>
                         <Link to='/news'>News</Link>
-                    </Space>
+                    </Space> */}
                 </div>
             </div>
         </div>

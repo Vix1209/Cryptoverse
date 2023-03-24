@@ -40,6 +40,9 @@ const Homepage = () => {
                 <Col span={12}>
                     <Statistic title='Total Cryptocurrencies' value={millify(globalStats.total)}/>
                 </Col>
+                {/* <Col span={12}>
+                    <Statistic title='Total Exchanges' value={millify(globalStats.totalExchanges)}/>
+                </Col> */}
                 <Col span={12}>
                     <Statistic title='Total Market Cap' value={millify(globalStats.totalMarketCap)}/>
                 </Col>
@@ -53,7 +56,7 @@ const Homepage = () => {
             </Row>
             <div className='home-heading-container'>
                 <Typography.Title level={3} className='home-title'>
-                    Top Cryptocurrencies in the World
+                    Top 10 Cryptocurrencies in the World
                 </Typography.Title>
                 <Typography.Title level={5} className='Show more'>
                     <Link to='./cryptocurrencies'>Show more</Link>
