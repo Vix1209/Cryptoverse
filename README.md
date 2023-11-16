@@ -1,4 +1,4 @@
-#Cryptoverse
+# Cryptoverse
 
 A cryptocurrency web application built on React, utilizing Ant Design, Redux and other libraries
 To keep track of the latest crypto news and details all around the world in real time.
